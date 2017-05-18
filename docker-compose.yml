@@ -8,6 +8,8 @@ services:
       image: tianon/true
       volumes:
         - ${APPLICATION}:/var/www
+        - c:/srv/code/framework/php/trunk/mod-framework:/data/www/framework/
+        - c:/srv/code/framework/php/trunk/mod-framework:/home/www/framework/
 
 ### Workspace Utilities Container ###########################
 
@@ -31,6 +33,8 @@ services:
           - INSTALL_DEPLOYER=${WORKSPACE_INSTALL_DEPLOYER}
           - INSTALL_LINUXBREW=${WORKSPACE_INSTALL_LINUXBREW}
           - INSTALL_MC=${WORKSPACE_INSTALL_MC}
+          - INSTALL_SWOOLE_EXTENSION=${WORKSPACE_INSTALL_SWOOLE_EXTENSION}
+          - INSTALL_AMQP_EXTENSION=${WORKSPACE_INSTALL_AMQP_EXTENSION}
           - PUID=${WORKSPACE_PUID}
           - PGID=${WORKSPACE_PGID}
           - NODE_VERSION=${WORKSPACE_NODE_VERSION}
@@ -45,6 +49,8 @@ services:
         - "dockerhost:${DOCKER_HOST_IP}"
       ports:
         - "${WORKSPACE_SSH_PORT}:22"
+        - "9501:9501"
+        - "9639:9639"
       tty: true
       networks:
         - frontend
