@@ -1,49 +1,32 @@
-# LaraDock
+![](https://s19.postimg.org/jblfytw9f/laradock-logo.jpg)
 
+[![Build Status](https://travis-ci.org/laradock/laradock.svg?branch=master)](https://travis-ci.org/laradock/laradock) [![GitHub issues](https://img.shields.io/github/issues/laradock/laradock.svg)](https://github.com/laradock/laradock/issues) [![GitHub forks](https://img.shields.io/github/forks/laradock/laradock.svg)](https://github.com/laradock/laradock/network) [![GitHub stars](https://img.shields.io/github/stars/laradock/laradock.svg)](https://github.com/laradock/laradock/stargazers) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/laradock/laradock/master/LICENSE)
 
-![](https://s31.postimg.org/nbettdki3/lara_dock_poster_new.jpg)
+> Use Docker first and learn about it later.
 
+A Docker PHP development environment that facilitates running **PHP** Apps on **Docker**.
 
+[![forthebadge](http://forthebadge.com/images/badges/built-by-developers.svg)](http://zalt.me)
 
-此版本laradock是基于[原作者](https://github.com/LaraDock/laradock)的代码，修改后以适用中国境内。
+## Documentation
 
-### 环境要求
+[**Full Documentation Here**](http://laradock.io)
 
-> windows10专业版、旗舰版、教育版等支持Microsoft Hyper-V的版本，并更新到10586以上
+## Credits
 
-### 配置加速器
+**Maintainers:**
 
-> [docker官网](https://www.docker.com/products/docker#/windows)下载最新的docker安装程序，并安装完成。
->
-> [daocloud](https://www.daocloud.io/)注册并登录，在控制台导航上点击进入加速器页面，点击windows标签，并按提示操作
+- [Mahmoud Zalt](https://github.com/Mahmoudz) @mahmoudz | [Twitter](https://twitter.com/Mahmoud_Zalt) | [Site](http://zalt.me)
+- [Bo-Yi Wu](https://github.com/appleboy) @appleboy | [Twitter](https://twitter.com/appleboy)
+- [Philippe Trépanier](https://github.com/philtrep) @philtrep
+- [Mike Erickson](https://github.com/mikeerickson) @mikeerickson
+- [Dwi Fahni Denni](https://github.com/zeroc0d3) @zeroc0d3
+- [Thor Erik](https://github.com/thorerik) @thorerik
+- [Winfried van Loon](https://github.com/winfried-van-loon) @winfried-van-loon
+- [TJ Miller](https://github.com/sixlive) @sixlive
+- [Yu-Lung Shao (Allen)](https://github.com/bestlong) @bestlong
+- Join Us.
 
-### 配置共享卷
-在桌面右下角状态栏中右键 docker 图标 Setting > Shared Drivers，选中你想要存放volumes和laradock的硬盘盘符，点击右下角apply
+## License
 
-> 注意如果你的windows没有为administrator配置密码需要先行配置（或许其它用户也可以，但我没有试过，如果你当前不是administrator用户，可以试一下）
-
-### 安装容器
-
-> 拉取laradock库：
-
-```powershell
-git clone https://github.com/callect/laradock.git
-```
-
-> 进入到laradock文件夹内，运行容器
-
-```powershell
-docker-compose up -d  nginx mysql
-```
-
-> 进入容器，Do what you want
-
-```powershell
-docker exec -it --user=laradock laradock_workspace_1 bash
-```
-
-至此，laradock容器已经激活运行了
-
-注：nginx站点配置laravel.conf中站点根路径请自行修改
-
-其它laradock配置见[原文档](https://github.com/LaraDock/laradock/blob/master/README.md)
+[MIT License](https://github.com/laradock/laradock/blob/master/LICENSE) (MIT)

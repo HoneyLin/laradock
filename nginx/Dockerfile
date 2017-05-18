@@ -3,14 +3,13 @@ FROM nginx:alpine
 MAINTAINER Mahmoud Zalt <mahmoud@zalt.me>
 
 ADD nginx.conf /etc/nginx/
-#COPY sites/*.conf /etc/nginx/sites-available/
 
 ARG PHP_UPSTREAM=php-fpm
 
-RUN rm -r /etc/apk/repositories \
-	&& echo -e 'http://mirrors.ustc.edu.cn/alpine/v3.4/main\nhttp://dl-cdn.alpinelinux.org/alpine/v3.4/main\nhttp://dl-cdn.alpinelinux.org/alpine/v3.4/community' >> /etc/apk/repositories \
-	&& cat /etc/apk/repositories \
-	&&apk update \
+# fix a problem--#397, change application source from dl-cdn.alpinelinux.org to aliyun source.
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories
+
+RUN apk update \
     && apk upgrade \
     && apk add --no-cache bash \
     && adduser -D -H -u 1000 -s /bin/bash www-data \
