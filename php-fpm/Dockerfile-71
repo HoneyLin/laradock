@@ -207,6 +207,20 @@ RUN if [ ${INSTALL_OPCACHE} = true ]; then \
 # Copy opcache configration
 COPY ./opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
+
+#####################################
+# Sockets:
+#####################################
+ARG INSTALL_SOCKETS=true
+RUN if [ ${INSTALL_SOCKETS} = true ]; then \
+    docker-php-ext-install sockets && \
+    docker-php-ext-enable sockets \
+;fi
+
+# Copy opcache configration
+COPY ./sockets.ini /usr/local/etc/php/conf.d/sockets.ini
+
+
 #####################################
 # Mysqli Modifications:
 #####################################
